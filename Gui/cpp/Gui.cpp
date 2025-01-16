@@ -63,7 +63,6 @@ void Gui::setOnClose(std::function<void(Gui&)> on_close)
 void Gui::openWindow(Window& window)
 {
     window_stack.push(window);
-    window.parent_gui = *this;
     if(window.on_open) window.on_open(window);
 }
 
@@ -174,12 +173,6 @@ void Gui::handleInputs()
     }
 }
 
-void Gui::showTerminalTooSmallMessage(Size window_size)
-{
-    std::cout << "\033[2J" << "\033[H";
-    std::cout << "Za mały terminal, aby wyświetlić okno.\nMinimalny rozmiar: " << window_size.w + 2 << "x" << window_size.h + 2 << "\nRozmiar Twojego terminala: " << this->terminal_size.w << "x" << this->terminal_size.h << std::endl;
-}
-
 void Gui::render()
 {
     Window& window = window_stack.top().get();
@@ -187,7 +180,8 @@ void Gui::render()
     updateTerminalSize();
     if ((window.size.w + 2 > terminal_size.w) || (window.size.h + 2 > terminal_size.h))
     {
-        showTerminalTooSmallMessage(window.size);
+        std::cout << "\033[2J" << "\033[H"; // clear, go to top left
+        std::cout << "Za mały terminal, aby wyświetlić okno.\nMinimalny rozmiar: " << window.size.w + 2 << "x" << window.size.h + 2 << "\nRozmiar Twojego terminala: " << this->terminal_size.w << "x" << this->terminal_size.h << std::endl;
         return;
     }
 

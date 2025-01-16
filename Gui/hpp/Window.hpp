@@ -3,13 +3,13 @@
 #include <iostream>
 #include <vector>
 #include <functional>
+#include <optional>
 
 #include "Gui.hpp"
 #include "Size.hpp"
 #include "Point.hpp"
 #include "Pixel.hpp"
 #include "Widget.hpp"
-#include "Button.hpp"
 
 class Window
 {
@@ -23,18 +23,15 @@ public:
     void setOnOpen(std::function<void(Window&)> on_open);
     void setOnClose(std::function<void(Window&)> on_close);
 
-    void addButton(Button& button);
+    void addWidget(Widget& widget);
 
 private:
     std::string title;
     Size size;
 
-    std::reference_wrapper<Gui> parent_gui;
-
     std::vector<std::vector<Pixel>> render_buffer;
 
-    //std::vector<std::reference_wrapper<Widget>> widgets;
-    std::vector<std::reference_wrapper<Button>> buttons;
+    std::vector<std::reference_wrapper<Widget>> widgets;
 
     std::function<void(Window&)> on_open;
     std::function<void(Window&)> on_close;
@@ -44,5 +41,4 @@ private:
     Pixel getPixelFromRender(Point point);
 
     friend class Gui;
-    friend class Button;
 };

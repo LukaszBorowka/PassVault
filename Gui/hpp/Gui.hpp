@@ -18,8 +18,6 @@
 #include "Size.hpp"
 #include "Window.hpp"
 
-void ctrlcSignal(int signum);
-
 class Gui
 {
 public:
@@ -73,7 +71,6 @@ private:
 
     void handleInputs();
 
-    void showTerminalTooSmallMessage(Size window_size);
     void render();
 
     friend class Window;

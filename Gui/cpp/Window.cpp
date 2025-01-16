@@ -33,10 +33,9 @@ void Window::setOnClose(std::function<void(Window&)> on_close)
     this->on_close = on_close;
 }
 
-void Window::addButton(Button& button)
+void Window::addWidget(Widget& widget)
 {
-    this->buttons.push_back(button);
-    button.parent_window = *this;
+    this->widgets.push_back(widget);
 }
 
 void Window::render()
