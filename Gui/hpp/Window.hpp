@@ -3,13 +3,14 @@
 #include <iostream>
 #include <vector>
 #include <functional>
-#include <optional>
 
 #include "Gui.hpp"
 #include "Size.hpp"
 #include "Point.hpp"
 #include "Pixel.hpp"
 #include "Widget.hpp"
+
+class Widget;
 
 class Window
 {

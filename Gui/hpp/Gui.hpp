@@ -18,6 +18,8 @@
 #include "Size.hpp"
 #include "Window.hpp"
 
+class Window;
+
 class Gui
 {
 public:
@@ -73,5 +75,5 @@ private:
 
     void render();
 
-    friend class Window;
+    //friend class Window;
 };

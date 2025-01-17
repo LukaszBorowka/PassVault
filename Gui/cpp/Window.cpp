@@ -45,6 +45,11 @@ void Window::render()
     {
         for (Pixel& pixel : row) pixel.ch = ' ';
     }
+
+    for (auto& widget : this->widgets)
+    {
+        
+    }
 }
 
 Pixel Window::getPixelFromRender(Point point)

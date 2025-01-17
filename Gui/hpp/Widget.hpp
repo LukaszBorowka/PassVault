@@ -1,22 +1,40 @@
 #pragma once
 
 #include "Window.hpp"
-
-enum class WidgetType
-{
-    Button,
-    Textbox
-};
+#include "Color.hpp"
+#include "Size.hpp"
+#include "Point.hpp"
 
 class Widget
 {
 public:
-    Widget(WidgetType type);
+
+    Widget();
     ~Widget();
 
-    WidgetType getType();
+    void setSize(Size size);
+    Size getSize();
+
+    void setPosition(Point position);
+    Point getPosition();
+
+    void setBackgroundColor(Color background_color);
+    Color getBackgroundColor();
+
+    void setTextColor(Color text_color);
+    Color getTextColor();
+
+    void setContent(std::string content);
+    std::string getContent();
 
 private:
 
-    WidgetType type;
+    Size size;
+    Point position;
+
+    Color background_color;
+    Color text_color;
+
+    std::string content;
+
 };

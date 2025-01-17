@@ -20,13 +20,17 @@ int main()
     login_form.setTitle("Zaloguj się do aplikacji");
     login_form.setSize(Size(80, 25));
 
-    Button login_button;
-    login_button.setSize(Size(20, 3));
-    login_button.setPosition(Point(30, 20));
-    login_button.setLabel("Zaloguj");
-    login_button.setOnClick([](Button& button) { std::cout << "Zalogowano!\n"; });
+    Widget login_label;
+    login_label.setSize(Size(20, 1));
+    login_label.setPosition(Point(5, 5));
+    login_label.setContent("Login:");
+    login_form.addWidget(login_label);
 
-    login_form.addWidget(login_button);
+    Widget passw_label;
+    passw_label.setSize(Size(20, 1));
+    passw_label.setPosition(Point(5, 7));
+    passw_label.setContent("Hasło:");
+    login_form.addWidget(passw_label);
     
     gui.openWindow(login_form);
 
