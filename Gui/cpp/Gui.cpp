@@ -197,8 +197,10 @@ void Gui::render()
 
     // currently no optimization is set up so no matter if force_refresh_screen_buffer is set
 
-    int top_margin = (terminal_size.h - window.size.h - 2) / 2;
-    int left_margin = (terminal_size.w - window.size.w - 2) / 2;
+    const int top_margin = (terminal_size.h - window.size.h - 2) / 2;
+    const int left_margin = (terminal_size.w - window.size.w - 2) / 2;
+
+
 
     std::cout << "\033[2J" << "\033[H";
 
@@ -213,10 +215,20 @@ void Gui::render()
         std::cout << "█";
         for (int x = 0; x < window.size.w; x++) std::cout << window_buffer[x][y].ch;
         std::cout << "█";
+
+        // shadow
+        std::cout << "\033[30m" << "█" << "\033[0m";
+
         std::cout << "\n";
     }
     for (int i = 0; i < left_margin; i++) std::cout << " ";
     for (int i = 0; i < window.size.w + 2; i++) std::cout << "█";
+
+    // shadow
+    std::cout << "\033[30m" << "█" << "\033[0m\n";
+    for (int i = 0; i < left_margin + 1; i++) std::cout << " ";
+    for (int i = 0; i < window.size.w + 2; i++) std::cout << "\033[30m" << "█" << "\033[0m";
+
     //std::cout << "\033[0m";
     std::cout << std::flush;
 

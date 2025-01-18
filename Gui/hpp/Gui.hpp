@@ -23,6 +23,7 @@ class Window;
 class Gui
 {
 public:
+
     Gui();
     ~Gui();
 
@@ -38,6 +39,7 @@ public:
     void closeTopWindow();
 
 private:
+
     bool isRunning;
 
     struct termios oldt, newt;
@@ -76,4 +78,5 @@ private:
     void render();
 
     //friend class Window;
+    
 };

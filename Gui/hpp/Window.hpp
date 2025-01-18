@@ -15,6 +15,7 @@ class Widget;
 class Window
 {
 public:
+
     Window();
     ~Window();
 
@@ -27,6 +28,7 @@ public:
     void addWidget(Widget& widget);
 
 private:
+
     std::string title;
     Size size;
 
@@ -42,4 +44,5 @@ private:
     Pixel getPixelFromRender(Point point);
 
     friend class Gui;
+
 };
