@@ -48,7 +48,11 @@ void Window::render()
 
     for (auto& widget : this->widgets)
     {
-        
+        for (int i = 0; i < widget.get().size.w; i++)
+        {
+            const Point pos(widget.get().position.x + i, widget.get().position.y);
+            if (pos.x < this->size.w && pos.y < this->size.h && i < widget.get().content.size()) this->render_buffer[pos.x][pos.y].ch = widget.get().content[i];
+        }
     }
 }
 

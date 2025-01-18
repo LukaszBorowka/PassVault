@@ -12,6 +12,10 @@ void ctrlcSignal(int s)
     gui.close();
 }
 
+//
+// DON'T USE POLISH CHARACTERS YET, THEY BREEEEAK A LOT OF STUFF !!
+//
+
 int main()
 {
     std::signal(SIGINT, ctrlcSignal);
@@ -23,14 +27,14 @@ int main()
     Widget login_label;
     login_label.setSize(Size(20, 1));
     login_label.setPosition(Point(5, 5));
-    login_label.setContent("Login:");
+    login_label.setContent("Haslo");
     login_form.addWidget(login_label);
 
-    Widget passw_label;
-    passw_label.setSize(Size(20, 1));
-    passw_label.setPosition(Point(5, 7));
-    passw_label.setContent("Hasło:");
-    login_form.addWidget(passw_label);
+    //Widget passw_label;
+    //passw_label.setSize(Size(20, 1));
+    //passw_label.setPosition(Point(5, 7));
+    //passw_label.setContent("Hasło:     ");
+    //login_form.addWidget(passw_label);
     
     gui.openWindow(login_form);
 

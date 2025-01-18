@@ -37,4 +37,6 @@ private:
 
     std::string content;
 
+    friend class Window;
+
 };
