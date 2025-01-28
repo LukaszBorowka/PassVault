@@ -5,12 +5,12 @@
 #include "Size.hpp"
 #include "Point.hpp"
 
-class Widget
+class Label
 {
 public:
 
-    Widget();
-    ~Widget();
+    Label();
+    ~Label();
 
     void setSize(Size size);
     Size getSize();

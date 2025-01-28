@@ -8,10 +8,10 @@
 #include "Size.hpp"
 #include "Point.hpp"
 #include "Pixel.hpp"
-#include "Widget.hpp"
+#include "Label.hpp"
 #include "UniStr.hpp"
 
-class Widget;
+class Label;
 
 class Window
 {
@@ -26,7 +26,7 @@ public:
     void setOnOpen(std::function<void(Window&)> on_open);
     void setOnClose(std::function<void(Window&)> on_close);
 
-    void addWidget(Widget& widget);
+    void addLabel(Label& Label);
 
 private:
 
@@ -35,7 +35,7 @@ private:
 
     std::vector<std::vector<Pixel>> render_buffer;
 
-    std::vector<std::reference_wrapper<Widget>> widgets;
+    std::vector<std::reference_wrapper<Label>> Labels;
 
     std::function<void(Window&)> on_open;
     std::function<void(Window&)> on_close;

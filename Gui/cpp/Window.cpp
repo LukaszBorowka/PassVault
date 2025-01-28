@@ -33,9 +33,9 @@ void Window::setOnClose(std::function<void(Window&)> on_close)
     this->on_close = on_close;
 }
 
-void Window::addWidget(Widget& widget)
+void Window::addLabel(Label& Label)
 {
-    this->widgets.push_back(widget);
+    this->Labels.push_back(Label);
 }
 
 void Window::render()
@@ -50,16 +50,16 @@ void Window::render()
         }
     }
 
-    for (auto& widget : this->widgets)
+    for (auto& Label : this->Labels)
     {
-        //UniStr str(widget.get().content);
-        UniStr str = widget.get().content;
+        //UniStr str(Label.get().content);
+        UniStr str = Label.get().content;
 
         for (int i = 0; i < str.length(); i++)
         {
-            if (widget.get().content[i] == '\0') break;
-            const Point pos(widget.get().position.x + i, widget.get().position.y);
-            if (pos.x < this->size.w && pos.y < this->size.h && i < widget.get().content.size()) this->render_buffer[pos.x][pos.y].UniCh = str.getUniChar(i);
+            if (Label.get().content[i] == '\0') break;
+            const Point pos(Label.get().position.x + i, Label.get().position.y);
+            if (pos.x < this->size.w && pos.y < this->size.h && i < Label.get().content.size()) this->render_buffer[pos.x][pos.y].UniCh = str.getUniChar(i);
         }
     }
 }
