@@ -78,3 +78,8 @@ std::ostream& operator<<(std::ostream& os, const UniStr& obj)
     os << obj.get();
     return os;
 }
+
+UniStr UniStr::operator=(const std::string& str)
+{
+    return UniStr(str);
+}

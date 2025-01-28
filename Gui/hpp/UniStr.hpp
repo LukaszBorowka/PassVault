@@ -19,6 +19,8 @@ public:
     
     friend std::ostream& operator<<(std::ostream& os, const UniStr& obj);
 
+    UniStr operator=(const std::string& str);
+
 private:
 
     std::vector<std::string> content;

@@ -52,7 +52,8 @@ void Window::render()
 
     for (auto& widget : this->widgets)
     {
-        UniStr str(widget.get().content);
+        //UniStr str(widget.get().content);
+        UniStr str = widget.get().content;
 
         for (int i = 0; i < str.length(); i++)
         {
