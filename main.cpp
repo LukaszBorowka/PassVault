@@ -3,17 +3,16 @@
 
 #include "Gui/hpp/Gui.hpp"
 
-Gui gui;
+Gui* gui_ptr = nullptr;
 
-bool ctrlc_signal = false;
-
-void ctrlcSignal(int s)
-{
-    gui.close();
+void ctrlcSignal(int signal) {
+    if(gui_ptr) gui_ptr->close();
 }
 
-int main()
-{
+int main() {
+    Gui gui;
+    gui_ptr = &gui;
+
     std::signal(SIGINT, ctrlcSignal);
 
     Window login_form;
@@ -36,5 +35,6 @@ int main()
 
     gui.start();
 
+    delete gui_ptr;
     return EXIT_SUCCESS;
 }
