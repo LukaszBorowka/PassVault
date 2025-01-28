@@ -61,7 +61,7 @@ std::string UniStr::getUniChar(int i)
     return this->content[i];
 }
 
-std::string UniStr::get()
+std::string UniStr::get() const
 {
     std::string output;
     for (const std::string& buff : this->content)
@@ -69,4 +69,12 @@ std::string UniStr::get()
         output += buff;
     }
     return output;
+}
+
+// operators:
+
+std::ostream& operator<<(std::ostream& os, const UniStr& obj)
+{
+    os << obj.get();
+    return os;
 }

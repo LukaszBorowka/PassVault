@@ -13,7 +13,11 @@ public:
     int length();
 
     std::string getUniChar(int i);
-    std::string get();
+    std::string get() const;
+
+    // operators:
+    
+    friend std::ostream& operator<<(std::ostream& os, const UniStr& obj);
 
 private:
 
