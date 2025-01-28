@@ -43,16 +43,22 @@ void Window::render()
     // example
     for (auto& row : this->render_buffer)
     {
-        for (Pixel& pixel : row) pixel.ch = ' ';
+        for (Pixel& pixel : row)
+        {
+            pixel.ch = ' ';
+            pixel.UniCh = " ";
+        }
     }
 
     for (auto& widget : this->widgets)
     {
-        for (int i = 0; i < widget.get().size.w; i++)
+        UniStr str(widget.get().content);
+
+        for (int i = 0; i < str.length(); i++)
         {
             if (widget.get().content[i] == '\0') break;
             const Point pos(widget.get().position.x + i, widget.get().position.y);
-            if (pos.x < this->size.w && pos.y < this->size.h && i < widget.get().content.size()) this->render_buffer[pos.x][pos.y].ch = widget.get().content[i];
+            if (pos.x < this->size.w && pos.y < this->size.h && i < widget.get().content.size()) this->render_buffer[pos.x][pos.y].UniCh = str.getUniChar(i);
         }
     }
 }

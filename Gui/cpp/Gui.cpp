@@ -4,11 +4,11 @@
 Gui::Gui()
 {
     //std::cout << "starting...\n";
-    setPolishLocale();
-    enableRawMode();
-    switchToSecondBuffer();
-    updateTerminalSize();
-    hideCursor();
+    // setPolishLocale();
+    // enableRawMode();
+    // switchToSecondBuffer();
+    // updateTerminalSize();
+    // hideCursor();
 
     //this->isRunning = true;
 
@@ -26,6 +26,12 @@ Gui::~Gui()
 
 void Gui::start()
 {
+    setPolishLocale();
+    enableRawMode();
+    switchToSecondBuffer();
+    updateTerminalSize();
+    hideCursor();
+
     this->isRunning = true;
 
     while (this->isRunning)
@@ -213,7 +219,7 @@ void Gui::render()
     {
         for (int i = 0; i < left_margin; i++) std::cout << " ";
         std::cout << "█";
-        for (int x = 0; x < window.size.w; x++) std::cout << window_buffer[x][y].ch;
+        for (int x = 0; x < window.size.w; x++) std::cout << window_buffer[x][y].UniCh;
         std::cout << "█";
 
         // shadow

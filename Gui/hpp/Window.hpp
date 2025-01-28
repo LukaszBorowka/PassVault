@@ -9,6 +9,7 @@
 #include "Point.hpp"
 #include "Pixel.hpp"
 #include "Widget.hpp"
+#include "UniStr.hpp"
 
 class Widget;
 

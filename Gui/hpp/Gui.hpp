@@ -17,6 +17,7 @@
 #include "Point.hpp"
 #include "Size.hpp"
 #include "Window.hpp"
+#include "UniStr.hpp"
 
 class Window;
 
