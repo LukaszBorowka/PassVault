@@ -12,10 +12,6 @@ void ctrlcSignal(int s)
     gui.close();
 }
 
-//
-// DON'T USE POLISH CHARACTERS YET, THEY BREEEEAK A LOT OF STUFF !!
-//
-
 int main()
 {
     // try
