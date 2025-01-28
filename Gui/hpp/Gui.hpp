@@ -41,7 +41,7 @@ public:
 
 private:
 
-    bool isRunning;
+    bool is_running;
 
     struct termios oldt, newt;
 

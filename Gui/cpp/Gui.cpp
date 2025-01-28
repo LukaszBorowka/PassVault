@@ -10,7 +10,7 @@ Gui::Gui()
     // updateTerminalSize();
     // hideCursor();
 
-    //this->isRunning = true;
+    //this->is_running = true;
 
     this->force_refresh_screen_buffer = true; // set this flag so that the initial render is performed fully, with no optimization
 }
@@ -32,9 +32,9 @@ void Gui::start()
     updateTerminalSize();
     hideCursor();
 
-    this->isRunning = true;
+    this->is_running = true;
 
-    while (this->isRunning)
+    while (this->is_running)
     //for (int i = 0; i < 3*this->max_fps; i++)
     {
         this->frame_start_time = std::chrono::steady_clock::now();
@@ -47,7 +47,7 @@ void Gui::start()
 
 void Gui::close()
 {
-    this->isRunning = false;
+    this->is_running = false;
 }
 
 void Gui::setMaxFPS(int max_fps) 
@@ -93,7 +93,7 @@ void Gui::updateTerminalSize()
     struct winsize w;
     if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w))
     {
-        std::cout << "Could now get terminal size.\n";
+        std::cout << "Could not get terminal size.\n";
         return; // exit if ioctl returns error (return not 0)
     }
     terminal_size.w = w.ws_col;
